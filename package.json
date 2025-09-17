@@ -16,11 +16,11 @@
     "multer": "^2.0.1",
     "pg": "^8.16.3",
     "sequelize": "^6.37.7",
-    "sequelize-cli": "^6.6.3"
+    "sequelize-cli": "^6.6.3",
+    "serverless-http": "^4.0.0"
   },
   "devDependencies": {
     "@types/node": "^24.1.0",
     "nodemon": "^3.1.10"
   }
 }
-

@@ -56,18 +56,23 @@ async function connectDatabase() {
 connectDatabase();
 
 // Ruta de prueba
-app.get('/', (req, res) => {
-  res.send({
-    message: 'Servidor Express con Sequelize está corriendo 🚀',
-    endpoints: {
-      auth: '/api',
-      news: '/api/news',
-      team: '/api/team',
-      clients: '/api/clients',
-      negotiations: '/api/negotiations'
-    },
-    database: isDatabaseConnected ? 'Conectada' : 'Desconectada'
-  });
+app.get('/', async (req, res) => {
+  try {
+    await connectDatabase();
+    res.send({
+      message: 'Servidor Express con Sequelize está corriendo 🚀',
+      endpoints: {
+        auth: '/api',
+        news: '/api/news',
+        team: '/api/team',
+        clients: '/api/clients',
+        negotiations: '/api/negotiations'
+      },
+      database: isDatabaseConnected ? 'Conectada' : 'Desconectada'
+    });
+  } catch (err) {
+    res.status(500).send({ error: 'No se pudo conectar a la base de datos', details: err.message });
+  }
 });
 
 // Exportamos handler para Vercel
