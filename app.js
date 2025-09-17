@@ -10,7 +10,7 @@ import teamRoutes from './routes/teamRoutes.js';
 import clientRoutes from './routes/clientRoutes.js';
 import negotiationRoutes from './routes/negotiationRoutes.js';
 
-import { sequelize } from './dbSequelizer.js';
+import { sequelize } from './models/dbSequelizer.js';
 
 const app = express();
 
