@@ -5,6 +5,7 @@ import teamRoutes from './routes/teamRoutes.js';
 import clientRoutes from './routes/clientRoutes.js';
 import negotiationRoutes from './routes/negotiationRoutes.js';
 import { sequelize } from './models/DbSequelize.js';
+import serverless from "serverless-http";
 
 import cors from 'cors';
 import path from 'path';
@@ -59,3 +60,5 @@ app.get('/', (req, res) => {
         database: isDatabaseConnected ? 'Conectada' : 'Desconectada'
     });
 });
+
+export const handler = serverless(app);
