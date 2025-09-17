@@ -4,7 +4,7 @@ import newsRoutes from './routes/newsRoutes.js';
 import teamRoutes from './routes/teamRoutes.js';
 import clientRoutes from './routes/clientRoutes.js';
 import negotiationRoutes from './routes/negotiationRoutes.js';
-import { sequelize } from './models/DbSequelize.js';
+import { sequelize } from './models/dbSequelizer.js';
 import serverless from "serverless-http";
 
 import cors from 'cors';
