@@ -76,4 +76,4 @@ app.get('/', async (req, res) => {
 });
 
 // Exportamos handler para Vercel
-export default serverless(app);
+export const handler = serverless(app);
