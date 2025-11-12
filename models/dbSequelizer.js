@@ -9,8 +9,8 @@ import { Negotiation } from "./negotiation.js";
 // Si existe DB_URL (como en Vercel), úsala; si no, usa variables locales
 let sequelize;
 
-if (process.env.DB_URL) {
-  sequelize = new Sequelize(process.env.DB_URL, {
+if (process.env.DATABASE_URL) {
+  sequelize = new Sequelize(process.env.DATABASE_URL, {
     dialect: "postgres",
     dialectModule: pg,
     logging: false,
