@@ -47,7 +47,13 @@ async function initDatabase() {
     }
   }
 }
-await initDatabase(); // se ejecuta una vez al inicio
+
+app.use(async (req, res, next) => {
+  if (!dbInitialized) {
+    await initDatabase();
+  }
+  next();
+})
 
 // Ruta principal
 app.get('/', (req, res) => {
