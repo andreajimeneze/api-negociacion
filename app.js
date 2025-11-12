@@ -35,19 +35,19 @@ app.use('/api/clients', clientRoutes);
 app.use('/api/negotiations', negotiationRoutes);
 
 // Conexión a la base de datos solo una vez
-// let dbInitialized = false;
-// async function initDatabase() {
-//   if (!dbInitialized) {
-//     try {
-//       await sequelize.authenticate();
-//       console.log('✅ Conexión a la base de datos establecida');
-//       dbInitialized = true;
-//     } catch (error) {
-//       console.error('❌ Error al conectar a la base de datos:', error.message);
-//     }
-//   }
-// }
-// await initDatabase(); // se ejecuta una vez al inicio
+let dbInitialized = false;
+async function initDatabase() {
+  if (!dbInitialized) {
+    try {
+      await sequelize.authenticate();
+      console.log('✅ Conexión a la base de datos establecida');
+      dbInitialized = true;
+    } catch (error) {
+      console.error('❌ Error al conectar a la base de datos:', error.message);
+    }
+  }
+}
+await initDatabase(); // se ejecuta una vez al inicio
 
 // Ruta principal
 app.get('/', (req, res) => {
