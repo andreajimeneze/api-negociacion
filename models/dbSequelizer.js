@@ -6,7 +6,6 @@ import { Team } from "./team.js";
 import { Client } from "./client.js";
 import { Negotiation } from "./negotiation.js";
 
-// Si existe DB_URL (como en Vercel), úsala; si no, usa variables locales
 let sequelize;
 
 if (process.env.DATABASE_URL) {
