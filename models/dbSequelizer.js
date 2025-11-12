@@ -48,3 +48,8 @@ export const getModels = () => {
   }
   return models;
 };
+
+// Compatibilidad con importaciones antiguas
+const { UserModel, NewsModel, TeamModel, ClientModel, NegotiationModel } = getModels();
+
+export { UserModel, NewsModel, TeamModel, ClientModel, NegotiationModel };
